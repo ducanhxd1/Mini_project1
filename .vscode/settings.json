@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "door.h": "c",
+        "can_frame.h": "c",
+        "utils.h": "c"
+    }
+}
