@@ -8,27 +8,28 @@ uint8_t checkParity(uint8_t byte)
         if (byte & (1 << i)) count++;
     }
     // Parity chẵn: trả về 1 nếu số bit 1 là chẵn, ngược lại trả về 0
-    return (count % 2 == 0) ? 1 : 0;
+    // return (count % 2 == 0) ? 1 : 0;
+    if (count % 2 == 0)
+    {
+        printf("Parity chan\n");
+        return 1;
+    } else {
+        printf("Parity le\n");
+        return 0;
+    }
 }
 
 uint8_t reverseBits(uint8_t byte)
 {
-    // Đảo thứ tự bit của byte
     uint8_t rev = 0;
-    for (uint8_t i = 0; i < 8; i++) {
-        rev |= ((byte >> i) & 1) << (7 - i);
+
+    for (int i = 0; i < 8; ++i) {
+        rev <<= 1;              // Dịch result sang trái
+        rev |= (byte & 1);      // Lấy bit thấp nhất của byte đưa vào result
+        byte >>= 1;                // Dịch byte sang phải để xét bit tiếp theo
     }
+
     return rev;
-
-    // uint8_t result = 0;
-
-    // for (int i = 0; i < 8; ++i) {
-    //     result <<= 1;              // Dịch result sang trái
-    //     result |= (byte & 1);      // Lấy bit thấp nhất của byte đưa vào result
-    //     byte >>= 1;                // Dịch byte sang phải để xét bit tiếp theo
-    // }
-
-    // return result;
 }
 
 void pointerDemo(Door* doors)

@@ -71,6 +71,7 @@ int main() {
                 if (idx < 0 || idx > 3) break;
                 val = doors[idx].statusUnion.byte;
                 printf("Parity cya byte trang thai cua %d: %d\n", idx, checkParity(val));
+                if
                 break;
             case 6:
                 printf("Chon cua (0-3): "); scanf("%d", &idx);
